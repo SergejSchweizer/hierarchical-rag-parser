@@ -1,0 +1,15 @@
+[project]
+name = "hierarchical-rag-parser"
+version = "0.1.0"
+description = "Structured PDF parsing and hierarchical chunking pipeline"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.2,<3.0",
+    "numpy>=2.0,<3.0",
+    "PyMuPDF>=1.26,<2.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
