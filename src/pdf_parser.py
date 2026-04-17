@@ -1,11 +1,14 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 from typing import Protocol
 
 import fitz
 
 from models import TextBlock
+
+NUMBERING_PATTERN = re.compile(r"^\d+(?:\.\d+)*[\.\)]?(?:\s|$)")
 
 
 class PDFParser(Protocol):
@@ -26,7 +29,11 @@ class PDFParser(Protocol):
     `PyMuPDFParser` is the concrete strategy used right now.
     """
 
-    def extract_blocks(self, pdf_path: str | Path) -> list[TextBlock]:
+    def extract_blocks(
+        self,
+        pdf_path: str | Path,
+        max_pages: int | None = None,
+    ) -> list[TextBlock]:
         """Extract ordered text blocks from a PDF document."""
 
 
@@ -51,7 +58,11 @@ class PyMuPDFParser:
     layout classification or document tree construction.
     """
 
-    def extract_blocks(self, pdf_path: str | Path) -> list[TextBlock]:
+    def extract_blocks(
+        self,
+        pdf_path: str | Path,
+        max_pages: int | None = None,
+    ) -> list[TextBlock]:
         """Extract non-empty text blocks from a PDF and sort them by reading order."""
         path = Path(pdf_path)
         if not path.exists():
@@ -60,25 +71,18 @@ class PyMuPDFParser:
         blocks: list[TextBlock] = []
         with fitz.open(path) as document:
             for page_index, page in enumerate(document, start=1):
-                page_blocks = page.get_text("blocks")
-                for block in page_blocks:
-                    x0, y0, x1, y1, text, *_ = block
-                    cleaned_text = _normalize_text(text)
-                    if not cleaned_text:
-                        continue
+                if max_pages is not None and page_index > max_pages:
+                    break
 
-                    blocks.append(
-                        TextBlock(
-                            text=cleaned_text,
-                            page=page_index,
-                            bbox=(float(x0), float(y0), float(x1), float(y1)),
-                        )
-                    )
+                blocks.extend(_extract_page_blocks(page, page_index))
 
         return _sort_blocks(blocks)
 
 
-def extract_text_blocks(pdf_path: str | Path) -> list[TextBlock]:
+def extract_text_blocks(
+    pdf_path: str | Path,
+    max_pages: int | None = None,
+) -> list[TextBlock]:
     """Convenience entrypoint for the parsing step of the pipeline.
 
     Design pattern:
@@ -92,7 +96,7 @@ def extract_text_blocks(pdf_path: str | Path) -> list[TextBlock]:
     """
 
     parser: PDFParser = PyMuPDFParser()
-    return parser.extract_blocks(pdf_path)
+    return parser.extract_blocks(pdf_path, max_pages=max_pages)
 
 
 def _normalize_text(text: str) -> str:
@@ -109,3 +113,83 @@ def _sort_blocks(blocks: list[TextBlock]) -> list[TextBlock]:
     simple so the parser stays predictable and easy to explain.
     """
     return sorted(blocks, key=lambda block: (block.page, block.bbox[1], block.bbox[0]))
+
+
+def _extract_page_blocks(page: fitz.Page, page_index: int) -> list[TextBlock]:
+    """Extract text blocks with lightweight font-size metadata from one page."""
+    page_dict = page.get_text("dict")
+    extracted_blocks: list[TextBlock] = []
+    page_width = float(page.rect.width) if page.rect.width else 0.0
+    page_height = float(page.rect.height) if page.rect.height else 0.0
+
+    for block in page_dict.get("blocks", []):
+        if block.get("type") != 0:
+            continue
+
+        text_parts: list[str] = []
+        font_sizes: list[float] = []
+
+        for line in block.get("lines", []):
+            line_parts: list[str] = []
+            for span in line.get("spans", []):
+                span_text = str(span.get("text", "")).strip()
+                if not span_text:
+                    continue
+
+                line_parts.append(span_text)
+                span_size = span.get("size")
+                if isinstance(span_size, (int, float)):
+                    font_sizes.append(float(span_size))
+
+            if line_parts:
+                text_parts.append(" ".join(line_parts))
+
+        cleaned_text = _normalize_text("\n".join(text_parts))
+        if not cleaned_text:
+            continue
+
+        bbox = block.get("bbox", (0.0, 0.0, 0.0, 0.0))
+        x0, y0, x1, y1 = bbox
+        font_size = max(font_sizes) if font_sizes else None
+        line_count = len(text_parts)
+        block_width = max(float(x1) - float(x0), 0.0)
+        block_center_x = (float(x0) + float(x1)) / 2.0
+        page_center_x = page_width / 2.0 if page_width else 0.0
+        width_ratio = block_width / page_width if page_width else None
+        y_position_ratio = float(y0) / page_height if page_height else None
+        is_centered = (
+            page_width > 0.0
+            and abs(block_center_x - page_center_x) <= page_width * 0.1
+        )
+        normalized_text = " ".join(cleaned_text.split())
+        ends_with_period = normalized_text.endswith(".")
+        is_numbered = bool(NUMBERING_PATTERN.match(normalized_text))
+        uppercase_ratio = _compute_uppercase_ratio(normalized_text)
+
+        extracted_blocks.append(
+            TextBlock(
+                text=cleaned_text,
+                page=page_index,
+                bbox=(float(x0), float(y0), float(x1), float(y1)),
+                font_size=font_size,
+                line_count=line_count,
+                y_position_ratio=y_position_ratio,
+                width_ratio=width_ratio,
+                is_centered=is_centered,
+                is_numbered=is_numbered,
+                ends_with_period=ends_with_period,
+                uppercase_ratio=uppercase_ratio,
+            )
+        )
+
+    return extracted_blocks
+
+
+def _compute_uppercase_ratio(text: str) -> float | None:
+    """Compute the ratio of uppercase letters among alphabetic characters."""
+    letters = [char for char in text if char.isalpha()]
+    if not letters:
+        return None
+
+    uppercase_letters = [char for char in letters if char.isupper()]
+    return len(uppercase_letters) / len(letters)
