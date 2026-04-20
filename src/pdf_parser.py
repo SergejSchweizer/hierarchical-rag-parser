@@ -149,14 +149,14 @@ def _extract_page_blocks(page: fitz.Page, page_index: int) -> list[TextBlock]:
             continue
 
         bbox = block.get("bbox", (0.0, 0.0, 0.0, 0.0))
-        x0, y0, x1, y1 = bbox
+        left, top, right, bottom = bbox
         font_size = max(font_sizes) if font_sizes else None
         line_count = len(text_parts)
-        block_width = max(float(x1) - float(x0), 0.0)
-        block_center_x = (float(x0) + float(x1)) / 2.0
+        block_width = max(float(right) - float(left), 0.0)
+        block_center_x = (float(left) + float(right)) / 2.0
         page_center_x = page_width / 2.0 if page_width else 0.0
         width_ratio = block_width / page_width if page_width else None
-        y_position_ratio = float(y0) / page_height if page_height else None
+        y_position_ratio = float(top) / page_height if page_height else None
         is_centered = (
             page_width > 0.0
             and abs(block_center_x - page_center_x) <= page_width * 0.1
@@ -170,7 +170,7 @@ def _extract_page_blocks(page: fitz.Page, page_index: int) -> list[TextBlock]:
             TextBlock(
                 text=cleaned_text,
                 page=page_index,
-                bbox=(float(x0), float(y0), float(x1), float(y1)),
+                bbox=(float(left), float(top), float(right), float(bottom)),
                 font_size=font_size,
                 line_count=line_count,
                 y_position_ratio=y_position_ratio,

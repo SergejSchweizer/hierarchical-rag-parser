@@ -24,6 +24,11 @@ This project extracts text blocks from PDF documents, classifies those blocks
 into structural document labels, and prepares the data for later document tree
 building and hierarchical chunking.
 
+It is intended to showcase one possible approach to structural parsing in
+combination with hierarchical chunking for RAG-oriented pipelines.
+This approach also enables more precise citations, for example by grounding
+answers to exact page numbers and paragraph-level chunks.
+
 The current focus is the first half of the pipeline:
 
 1. parse the PDF into ordered text blocks
@@ -33,6 +38,17 @@ The current focus is the first half of the pipeline:
 
 The goal is to reconstruct document structure from PDFs in a way that is easy
 to inspect, easy to test, and easy to extend.
+
+A simplified example of what hierarchical chunking can look like:
+
+```text
+Document: "Annual Report 2025"
+  Section: "1 Business Overview"
+    Subsection: "1.1 Strategy"
+      Chunk (level=subsection): "Growth is driven by subscriptions..."
+    Chunk (level=section): "The company operates in Europe..."
+  Chunk (level=document): "Forward-looking statements..."
+```
 
 ## Current Pipeline
 
