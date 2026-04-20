@@ -6,12 +6,13 @@ Small Python project for structured PDF parsing and hierarchical chunking.
 
 - [Overview](#overview)
 - [Current Pipeline](#current-pipeline)
-- [Step 1: PDF parsing](#step-1-pdf-parsing)
-- [Step 2: Block classification](#step-2-block-classification)
-- [Step 3: Structure building](#step-3-structure-building)
-- [Step 4: Hierarchical chunking](#step-4-hierarchical-chunking)
-- [CLI orchestration](#cli-orchestration)
-- [Shared domain model](#shared-domain-model)
+  - [Pipeline Steps](#pipeline-steps)
+  - [Step 1: PDF parsing](#step-1-pdf-parsing)
+  - [Step 2: Block classification](#step-2-block-classification)
+  - [Step 3: Structure building](#step-3-structure-building)
+  - [Step 4: Hierarchical chunking](#step-4-hierarchical-chunking)
+  - [CLI orchestration](#cli-orchestration)
+  - [Shared domain model](#shared-domain-model)
 - [Model Used For Classification](#model-used-for-classification)
 - [Files And Responsibilities](#files-and-responsibilities)
 - [Running The Current Pipeline](#running-the-current-pipeline)
@@ -35,7 +36,9 @@ to inspect, easy to test, and easy to extend.
 
 ## Current Pipeline
 
-### Step 1: PDF parsing
+### Pipeline Steps
+
+#### Step 1: PDF parsing
 
 File: [src/pdf_parser.py](src/pdf_parser.py)
 
@@ -60,7 +63,7 @@ Design:
 - `extract_text_blocks(...)` is the small pipeline-facing entrypoint used by
   the rest of the application.
 
-### Step 2: Block classification
+#### Step 2: Block classification
 
 File: [src/layout_classifier.py](src/layout_classifier.py)
 
@@ -87,7 +90,7 @@ Design:
 - `HuggingFaceLayoutClassifier` is the concrete classifier implementation used
   by the current pipeline.
 
-### Step 3: Structure building
+#### Step 3: Structure building
 
 File: [src/structure_builder.py](src/structure_builder.py)
 
@@ -102,7 +105,7 @@ What happens:
 Output:
 - `DocumentTree`
 
-### Step 4: Hierarchical chunking
+#### Step 4: Hierarchical chunking
 
 File: [src/chunker.py](src/chunker.py)
 
