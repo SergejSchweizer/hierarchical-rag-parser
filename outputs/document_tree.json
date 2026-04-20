@@ -1,0 +1,862 @@
+{
+  "title": "UNITED STATES\nSECURITIES AND EXCHANGE COMMISSION",
+  "title_page": 1,
+  "preamble": [
+    {
+      "text": "Washington, D.C. 20549",
+      "page": 1,
+      "bbox": [
+        236.00390625,
+        86.04651641845703,
+        360.22735595703125,
+        98.32999420166016
+      ],
+      "x0": 236.00390625,
+      "y0": 86.04651641845703,
+      "x1": 360.22735595703125,
+      "y1": 98.32999420166016,
+      "font_size": 10.994999885559082,
+      "y_position_ratio": 0.1022027249205217,
+      "label": "title"
+    },
+    {
+      "text": "FORM 10-K",
+      "page": 1,
+      "bbox": [
+        252.31640625,
+        97.94397735595703,
+        343.91162109375,
+        123.60147857666016
+      ],
+      "x0": 252.31640625,
+      "y0": 97.94397735595703,
+      "x1": 343.91162109375,
+      "y1": 123.60147857666016,
+      "font_size": 16.994998931884766,
+      "y_position_ratio": 0.1163340689662772,
+      "label": "title"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Untitled Section",
+      "page": 1,
+      "blocks": [],
+      "subsections": [
+        {
+          "heading": "\u2612\nANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT\nOF 1934",
+          "page": 1,
+          "blocks": []
+        },
+        {
+          "heading": "For the Fiscal Year Ended June 30, 2023",
+          "page": 1,
+          "blocks": []
+        },
+        {
+          "heading": "OR",
+          "page": 1,
+          "blocks": []
+        },
+        {
+          "heading": "\u2610\nTRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE\nACT OF 1934",
+          "page": 1,
+          "blocks": [
+            {
+              "text": "For the Transition Period From                  to",
+              "page": 1,
+              "bbox": [
+                35.25,
+                220.94398498535156,
+                245.99969482421875,
+                235.8007354736328
+              ],
+              "x0": 35.25,
+              "y0": 220.94398498535156,
+              "x1": 245.99969482421875,
+              "y1": 235.8007354736328,
+              "font_size": 9.0,
+              "y_position_ratio": 0.2624287218146824,
+              "label": "title"
+            }
+          ]
+        },
+        {
+          "heading": "Commission File Number 001-37845",
+          "page": 1,
+          "blocks": [
+            {
+              "text": "MICROSOFT CORPORATION",
+              "page": 1,
+              "bbox": [
+                147.3984375,
+                247.94398498535156,
+                448.8291320800781,
+                279.1615905761719
+              ],
+              "x0": 147.3984375,
+              "y0": 247.94398498535156,
+              "x1": 448.8291320800781,
+              "y1": 279.1615905761719,
+              "font_size": 21.997499465942383,
+              "y_position_ratio": 0.29449827776781773,
+              "label": "title"
+            },
+            {
+              "text": "WASHINGTON\n91-1144442\n(STATE OF INCORPORATION)\n(I.R.S. ID)\nONE MICROSOFT WAY, REDMOND, WASHINGTON 98052-6399",
+              "page": 1,
+              "bbox": [
+                110.203125,
+                290.05743408203125,
+                454.0231628417969,
+                320.4442443847656
+              ],
+              "x0": 110.203125,
+              "y0": 290.05743408203125,
+              "x1": 454.0231628417969,
+              "y1": 320.4442443847656,
+              "font_size": 7.994999885559082,
+              "y_position_ratio": 0.344519004145058,
+              "label": "title"
+            },
+            {
+              "text": "(425) 882-8080\nwww.microsoft.com/investor",
+              "page": 1,
+              "bbox": [
+                243.62109375,
+                322.7623291015625,
+                352.6101379394531,
+                342.9442443847656
+              ],
+              "x0": 243.62109375,
+              "y0": 322.7623291015625,
+              "x1": 352.6101379394531,
+              "y1": 342.9442443847656,
+              "font_size": 7.994999885559082,
+              "y_position_ratio": 0.3833646138032163,
+              "label": "title"
+            },
+            {
+              "text": "Securities registered pursuant to Section 12(b) of the Act:",
+              "page": 1,
+              "bbox": [
+                35.25,
+                344.6939697265625,
+                362.46685791015625,
+                358.9072265625
+              ],
+              "x0": 35.25,
+              "y0": 344.6939697265625,
+              "x1": 362.46685791015625,
+              "y1": 358.9072265625,
+              "font_size": 9.0,
+              "y_position_ratio": 0.4094141684760864,
+              "label": "title"
+            },
+            {
+              "text": "Title of each class\nTrading Symbol\nName of exchange on which registered",
+              "page": 1,
+              "bbox": [
+                35.25,
+                360.4439697265625,
+                538.4986572265625,
+                374.6572265625
+              ],
+              "x0": 35.25,
+              "y0": 360.4439697265625,
+              "x1": 538.4986572265625,
+              "y1": 374.6572265625,
+              "font_size": 9.0,
+              "y_position_ratio": 0.4281214094487487,
+              "label": "title"
+            },
+            {
+              "text": "Common stock, $0.00000625 par value per share\nMSFT\nNASDAQ\n3.125% Notes due 2028\nMSFT\nNASDAQ\n2.625% Notes due 2033\nMSFT\nNASDAQ",
+              "page": 1,
+              "bbox": [
+                35.25,
+                376.1939697265625,
+                479.9736022949219,
+                415.0507507324219
+              ],
+              "x0": 35.25,
+              "y0": 376.1939697265625,
+              "x1": 479.9736022949219,
+              "y1": 415.0507507324219,
+              "font_size": 9.0,
+              "y_position_ratio": 0.44682865042141096,
+              "label": "paragraph"
+            }
+          ]
+        },
+        {
+          "heading": "Securities registered pursuant to Section 12(g) of the Act:",
+          "page": 1,
+          "blocks": []
+        },
+        {
+          "heading": "None",
+          "page": 1,
+          "blocks": [
+            {
+              "text": "Indicate by check mark if the registrant is a well-known seasoned issuer, as defined in Rule 405 of the Securities Act.    Yes \u2612 No \u2610",
+              "page": 1,
+              "bbox": [
+                34.5,
+                448.8725891113281,
+                512.6796264648438,
+                459.5065612792969
+              ],
+              "x0": 34.5,
+              "y0": 448.8725891113281,
+              "x1": 512.6796264648438,
+              "y1": 459.5065612792969,
+              "font_size": 7.994999885559082,
+              "y_position_ratio": 0.5331535041605356,
+              "label": "paragraph"
+            },
+            {
+              "text": "Indicate by check mark if the registrant is not required to file reports pursuant to Section 13 or Section 15(d) of the Act.    Yes \u2610 No \u2612",
+              "page": 1,
+              "bbox": [
+                34.5,
+                462.3725891113281,
+                517.5780639648438,
+                473.0065612792969
+              ],
+              "x0": 34.5,
+              "y0": 462.3725891113281,
+              "x1": 517.5780639648438,
+              "y1": 473.0065612792969,
+              "font_size": 7.994999885559082,
+              "y_position_ratio": 0.5491882821371034,
+              "label": "paragraph"
+            }
+          ]
+        },
+        {
+          "heading": "Indicate by check mark whether the registrant (1) has filed all reports required to be filed by Section 13 or 15(d) of the Securities Exchange Act of\n1934 during the preceding 12 months (or for such shorter period that the registrant was required to file such reports), and (2) has been subject to\nsuch filing requirements for the past 90 days.    Yes \u2612 No \u2610\nIndicate by check mark whether the registrant has submitted electronically every Interactive Data File required to be submitted pursuant to Rule 405\nof Regulation S-T (\u00a7232.405 of this chapter) during the preceding 12 months (or for such shorter period that the registrant was required to submit\nsuch files).    Yes \u2612 No \u2610",
+          "page": 1,
+          "blocks": []
+        },
+        {
+          "heading": "Indicate by check mark whether the registrant is a large accelerated filer, an accelerated filer, a non-accelerated filer, a smaller reporting company, or\nan emerging growth company. See the definitions of \u201clarge accelerated filer,\u201d \u201caccelerated filer,\u201d \u201csmaller reporting company,\u201d and \u201cemerging growth\ncompany\u201d in Rule 12b-2 of the Exchange Act.",
+          "page": 1,
+          "blocks": []
+        },
+        {
+          "heading": "Large Accelerated Filer \u2612\nAccelerated Filer \u2610",
+          "page": 1,
+          "blocks": [
+            {
+              "text": "Non-accelerated Filer \u2610\nSmaller Reporting Company \u2610",
+              "page": 1,
+              "bbox": [
+                35.25,
+                589.12255859375,
+                487.9735412597656,
+                600.1942749023438
+              ],
+              "x0": 35.25,
+              "y0": 589.12255859375,
+              "x1": 487.9735412597656,
+              "y1": 600.1942749023438,
+              "font_size": 7.994999885559082,
+              "y_position_ratio": 0.6997369946695006,
+              "label": "title"
+            },
+            {
+              "text": "Emerging Growth Company \u2610",
+              "page": 1,
+              "bbox": [
+                35.25,
+                601.87255859375,
+                486.1922912597656,
+                612.9442749023438
+              ],
+              "x0": 35.25,
+              "y0": 601.87255859375,
+              "x1": 486.1922912597656,
+              "y1": 612.9442749023438,
+              "font_size": 7.994999885559082,
+              "y_position_ratio": 0.71488095164737,
+              "label": "title"
+            },
+            {
+              "text": "If an emerging growth company, indicate by check mark if the registrant has elected not to use the extended transition period for complying with any\nnew or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act. \u2610\nIndicate by check mark whether the registrant has filed a report on and attestation to its management\u2019s assessment of the effectiveness of its internal\ncontrol over financial reporting under Section 404(b) of the Sarbanes-Oxley Act (15 U.S.C. 7262(b)) by the registered public accounting firm that\nprepared or issued its audit report. \u2612",
+              "page": 1,
+              "bbox": [
+                34.5,
+                616.0123291015625,
+                563.9725952148438,
+                666.5065307617188
+              ],
+              "x0": 34.5,
+              "y0": 616.0123291015625,
+              "x1": 563.9725952148438,
+              "y1": 666.5065307617188,
+              "font_size": 7.994999885559082,
+              "y_position_ratio": 0.731675624294214,
+              "label": "paragraph"
+            },
+            {
+              "text": "If securities are registered pursuant to Section 12(b) of the Act, indicate by check mark whether the financial statements of the registrant included in\nthe filing reflect the correction of an error to previously issued financial statements. \u2610\nIndicate by check mark whether any of those error corrections are restatements that required a recovery analysis of incentive-based compensation\nreceived by any of the registrant\u2019s executive officers during the relevant recovery period pursuant to \u00a7240.10D-1(b). \u2610",
+              "page": 1,
+              "bbox": [
+                34.5,
+                669.2623291015625,
+                563.9725952148438,
+                710.7565307617188
+              ],
+              "x0": 34.5,
+              "y0": 669.2623291015625,
+              "x1": 563.9725952148438,
+              "y1": 710.7565307617188,
+              "font_size": 7.994999885559082,
+              "y_position_ratio": 0.7949239152017864,
+              "label": "paragraph"
+            },
+            {
+              "text": "Indicate by check mark whether the registrant is a shell company (as defined in Rule 12b-2 of the Act).    Yes \u2610 No \u2612",
+              "page": 1,
+              "bbox": [
+                34.5,
+                713.62255859375,
+                461.58587646484375,
+                724.2565307617188
+              ],
+              "x0": 34.5,
+              "y0": 713.62255859375,
+              "x1": 461.58587646484375,
+              "y1": 724.2565307617188,
+              "font_size": 7.994999885559082,
+              "y_position_ratio": 0.8476132804534023,
+              "label": "paragraph"
+            },
+            {
+              "text": "As of December 31, 2022, the aggregate market value of the registrant\u2019s common stock held by non-affiliates of the registrant was $ 1.8 trillion based\non the closing sale price as reported on the NASDAQ National Market System. As of July 24, 2023, there were 7,429,763,722 shares of common\nstock outstanding.",
+              "page": 1,
+              "bbox": [
+                34.5,
+                726.5574340820312,
+                563.9725952148438,
+                762.9442749023438
+              ],
+              "x0": 34.5,
+              "y0": 726.5574340820312,
+              "x1": 563.9725952148438,
+              "y1": 762.9442749023438,
+              "font_size": 8.497499465942383,
+              "y_position_ratio": 0.8629768253874125,
+              "label": "other"
+            }
+          ]
+        },
+        {
+          "heading": "DOCUMENTS INCORPORATED BY REFERENCE\nPortions of the definitive Proxy Statement to be delivered to shareholders in connection with the Annual Meeting of Shareholders to be held on\nDecember 7, 2023 are incorporated by reference into Part III.",
+          "page": 1,
+          "blocks": [
+            {
+              "text": "MICROSOFT CORPORATION",
+              "page": 3,
+              "bbox": [
+                229.6171875,
+                39.69953155517578,
+                366.6124267578125,
+                50.86861038208008
+              ],
+              "x0": 229.6171875,
+              "y0": 39.69953155517578,
+              "x1": 366.6124267578125,
+              "y1": 50.86861038208008,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.047153568463776725,
+              "label": "title"
+            },
+            {
+              "text": "FORM 10-K\nFor the Fiscal Year Ended June 30, 2023",
+              "page": 3,
+              "bbox": [
+                203.19140625,
+                50.94953155517578,
+                393.0445251464844,
+                73.36861419677734
+              ],
+              "x0": 203.19140625,
+              "y0": 50.94953155517578,
+              "x1": 393.0445251464844,
+              "y1": 73.36861419677734,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.060515883444249775,
+              "label": "title"
+            },
+            {
+              "text": "INDEX",
+              "page": 3,
+              "bbox": [
+                34.5,
+                73.44953155517578,
+                314.791015625,
+                94.9072265625
+              ],
+              "x0": 34.5,
+              "y0": 73.44953155517578,
+              "x1": 314.791015625,
+              "y1": 94.9072265625,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.0872405134051959,
+              "label": "other"
+            }
+          ]
+        },
+        {
+          "heading": "Page\nPART I",
+          "page": 3,
+          "blocks": []
+        },
+        {
+          "heading": "Item 1.\nBusiness\n4",
+          "page": 3,
+          "blocks": []
+        },
+        {
+          "heading": "Information about our Executive Officers\n20",
+          "page": 3,
+          "blocks": []
+        },
+        {
+          "heading": "Item 1A.\nRisk Factors\n23",
+          "page": 3,
+          "blocks": [
+            {
+              "text": "Item 1B.\nUnresolved Staff Comments\n37",
+              "page": 3,
+              "bbox": [
+                35.25,
+                199.44952392578125,
+                560.9922485351562,
+                218.771484375
+              ],
+              "x0": 35.25,
+              "y0": 199.44952392578125,
+              "x1": 560.9922485351562,
+              "y1": 218.771484375,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.2368984321245943,
+              "label": "other"
+            }
+          ]
+        },
+        {
+          "heading": "Item 2.\nProperties\n37",
+          "page": 3,
+          "blocks": []
+        },
+        {
+          "heading": "Item 3.\nLegal Proceedings\n37",
+          "page": 3,
+          "blocks": [
+            {
+              "text": "Item 4.\nMine Safety Disclosures\n37\nPART II",
+              "page": 3,
+              "bbox": [
+                35.25,
+                262.44952392578125,
+                560.9922485351562,
+                294.8471374511719
+              ],
+              "x0": 35.25,
+              "y0": 262.44952392578125,
+              "x1": 560.9922485351562,
+              "y1": 294.8471374511719,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.3117273960152434,
+              "label": "title"
+            }
+          ]
+        },
+        {
+          "heading": "Market for Registrant\u2019s Common Equity, Related Stockholder Matters, and Issuer\nPurchases of Equity Securities\n38",
+          "page": 3,
+          "blocks": []
+        },
+        {
+          "heading": "Item 5.",
+          "page": 3,
+          "blocks": [
+            {
+              "text": "Item 6.\n[Reserved]\n39",
+              "page": 3,
+              "bbox": [
+                35.25,
+                336.69952392578125,
+                560.9922485351562,
+                356.021484375
+              ],
+              "x0": 35.25,
+              "y0": 336.69952392578125,
+              "x1": 560.9922485351562,
+              "y1": 356.021484375,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.39991867488636557,
+              "label": "title"
+            },
+            {
+              "text": "Management\u2019s Discussion and Analysis of Financial Condition and Results of\nOperations\n40",
+              "page": 3,
+              "bbox": [
+                35.25,
+                357.69952392578125,
+                560.9922485351562,
+                388.271484375
+              ],
+              "x0": 35.25,
+              "y0": 357.69952392578125,
+              "x1": 560.9922485351562,
+              "y1": 388.271484375,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.4248616628499153,
+              "label": "title"
+            },
+            {
+              "text": "Item 7.",
+              "page": 3,
+              "bbox": [
+                80.8359375,
+                357.69952392578125,
+                111.3963394165039,
+                368.8686218261719
+              ],
+              "x0": 80.8359375,
+              "y0": 357.69952392578125,
+              "x1": 111.3963394165039,
+              "y1": 368.8686218261719,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.4248616628499153,
+              "label": "title"
+            }
+          ]
+        },
+        {
+          "heading": "Item 7A.\nQuantitative and Qualitative Disclosures about Market Risk\n57",
+          "page": 3,
+          "blocks": [
+            {
+              "text": "Item 8.\nFinancial Statements and Supplementary Data\n58",
+              "page": 3,
+              "bbox": [
+                35.25,
+                410.94952392578125,
+                560.998046875,
+                430.271484375
+              ],
+              "x0": 35.25,
+              "y0": 410.94952392578125,
+              "x1": 560.998046875,
+              "y1": 430.271484375,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.4881099537574878,
+              "label": "title"
+            },
+            {
+              "text": "Changes in and Disagreements with Accountants on Accounting and Financial\nDisclosure\n99",
+              "page": 3,
+              "bbox": [
+                35.25,
+                431.94952392578125,
+                560.998046875,
+                462.521484375
+              ],
+              "x0": 35.25,
+              "y0": 431.94952392578125,
+              "x1": 560.998046875,
+              "y1": 462.521484375,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.5130529417210374,
+              "label": "title"
+            }
+          ]
+        },
+        {
+          "heading": "Item 9.",
+          "page": 3,
+          "blocks": [
+            {
+              "text": "Item 9A.\nControls and Procedures\n99",
+              "page": 3,
+              "bbox": [
+                35.25,
+                464.19952392578125,
+                560.998046875,
+                483.521484375
+              ],
+              "x0": 35.25,
+              "y0": 464.19952392578125,
+              "x1": 560.998046875,
+              "y1": 483.521484375,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.5513582446650602,
+              "label": "title"
+            },
+            {
+              "text": "Report of Management on Internal Control over Financial Reporting\n99",
+              "page": 3,
+              "bbox": [
+                35.25,
+                485.19952392578125,
+                560.998046875,
+                504.521484375
+              ],
+              "x0": 35.25,
+              "y0": 485.19952392578125,
+              "x1": 560.998046875,
+              "y1": 504.521484375,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.5763012326286099,
+              "label": "title"
+            },
+            {
+              "text": "Report of Independent Registered Public Accounting Firm\n100",
+              "page": 3,
+              "bbox": [
+                35.25,
+                506.19952392578125,
+                560.998046875,
+                525.521484375
+              ],
+              "x0": 35.25,
+              "y0": 506.19952392578125,
+              "x1": 560.998046875,
+              "y1": 525.521484375,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.6012442205921597,
+              "label": "other"
+            },
+            {
+              "text": "Item 9B.\nOther Information\n101",
+              "page": 3,
+              "bbox": [
+                35.25,
+                527.1995239257812,
+                560.998046875,
+                546.521484375
+              ],
+              "x0": 35.25,
+              "y0": 527.1995239257812,
+              "x1": 560.998046875,
+              "y1": 546.521484375,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.6261872085557093,
+              "label": "other"
+            },
+            {
+              "text": "Item 9C.\nDisclosure Regarding Foreign Jurisdictions that Prevent Inspections\n101\nPART III",
+              "page": 3,
+              "bbox": [
+                35.25,
+                548.1995239257812,
+                560.998046875,
+                580.5971069335938
+              ],
+              "x0": 35.25,
+              "y0": 548.1995239257812,
+              "x1": 560.998046875,
+              "y1": 580.5971069335938,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.6511301965192591,
+              "label": "other"
+            }
+          ]
+        },
+        {
+          "heading": "Item 10.\nDirectors, Executive Officers, and Corporate Governance\n101",
+          "page": 3,
+          "blocks": [
+            {
+              "text": "Item 11.\nExecutive Compensation\n101",
+              "page": 3,
+              "bbox": [
+                35.25,
+                611.1995239257812,
+                560.998046875,
+                630.521484375
+              ],
+              "x0": 35.25,
+              "y0": 611.1995239257812,
+              "x1": 560.998046875,
+              "y1": 630.521484375,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.7259591604099082,
+              "label": "title"
+            }
+          ]
+        },
+        {
+          "heading": "Security Ownership of Certain Beneficial Owners and Management and Related\nStockholder Matters\n101",
+          "page": 3,
+          "blocks": [
+            {
+              "text": "Item 12.",
+              "page": 3,
+              "bbox": [
+                80.8359375,
+                632.1995239257812,
+                116.95645904541016,
+                643.3685913085938
+              ],
+              "x0": 80.8359375,
+              "y0": 632.1995239257812,
+              "x1": 116.95645904541016,
+              "y1": 643.3685913085938,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.7509021483734578,
+              "label": "title"
+            }
+          ]
+        },
+        {
+          "heading": "Item 13.\nCertain Relationships and Related Transactions, and Director Independence\n101",
+          "page": 3,
+          "blocks": [
+            {
+              "text": "Item 14.\nPrincipal Accountant Fees and Services\n101\nPART IV",
+              "page": 3,
+              "bbox": [
+                35.25,
+                685.4495239257812,
+                560.9922485351562,
+                717.8471069335938
+              ],
+              "x0": 35.25,
+              "y0": 685.4495239257812,
+              "x1": 560.9922485351562,
+              "y1": 717.8471069335938,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.8141504392810304,
+              "label": "title"
+            },
+            {
+              "text": "Item 15.\nExhibit and Financial Statement Schedules\n102",
+              "page": 3,
+              "bbox": [
+                35.25,
+                727.4495239257812,
+                560.9922485351562,
+                746.771484375
+              ],
+              "x0": 35.25,
+              "y0": 727.4495239257812,
+              "x1": 560.9922485351562,
+              "y1": 746.771484375,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.8640364152081297,
+              "label": "title"
+            }
+          ]
+        },
+        {
+          "heading": "Item 16.\nForm 10-K Summary\n108",
+          "page": 3,
+          "blocks": [
+            {
+              "text": "Signatures\n109",
+              "page": 3,
+              "bbox": [
+                34.5,
+                769.4495239257812,
+                560.990234375,
+                792.6625366210938
+              ],
+              "x0": 34.5,
+              "y0": 769.4495239257812,
+              "x1": 560.990234375,
+              "y1": 792.6625366210938,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.9139223911352291,
+              "label": "other"
+            },
+            {
+              "text": "2",
+              "page": 3,
+              "bbox": [
+                295.8984375,
+                805.7623291015625,
+                300.3436584472656,
+                814.6942749023438
+              ],
+              "x0": 295.8984375,
+              "y0": 805.7623291015625,
+              "x1": 300.3436584472656,
+              "y1": 814.6942749023438,
+              "font_size": 7.994999885559082,
+              "y_position_ratio": 0.9570533369648595,
+              "label": "other"
+            }
+          ]
+        },
+        {
+          "heading": "PART I",
+          "page": 5,
+          "blocks": []
+        },
+        {
+          "heading": "Item 1",
+          "page": 5,
+          "blocks": [
+            {
+              "text": "Note About Forward-Looking Statements",
+              "page": 5,
+              "bbox": [
+                200.82421875,
+                45.1025390625,
+                395.4026794433594,
+                66.61861419677734
+              ],
+              "x0": 200.82421875,
+              "y0": 45.1025390625,
+              "x1": 395.4026794433594,
+              "y1": 66.61861419677734,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.05357105185530799,
+              "label": "title"
+            },
+            {
+              "text": "This report includes estimates, projections, statements relating to our business plans, objectives, and expected\noperating results that are \u201cforward-looking statements\u201d within the meaning of the Private Securities Litigation Reform\nAct of 1995, Section 27A of the Securities Act of 1933, and Section 21E of the Securities Exchange Act of 1934.\nForward-looking statements may appear throughout this report, including the following sections: \u201cBusiness\u201d (Part I,\nItem 1 of this Form 10-K), \u201cRisk Factors\u201d (Part I, Item 1A of this Form 10-K), and \u201cManagement\u2019s Discussion and\nAnalysis of Financial Condition and Results of Operations\u201d (Part II, Item 7 of this Form 10-K). These forward-looking\nstatements generally are identified by the words \u201cbelieve,\u201d \u201cproject,\u201d \u201cexpect,\u201d \u201canticipate,\u201d \u201cestimate,\u201d \u201cintend,\u201d\n\u201cstrategy,\u201d \u201cfuture,\u201d \u201copportunity,\u201d \u201cplan,\u201d \u201cmay,\u201d \u201cshould,\u201d \u201cwill,\u201d \u201cwould,\u201d \u201cwill be,\u201d \u201cwill continue,\u201d \u201cwill likely result,\u201d and\nsimilar expressions. Forward-looking statements are based on current expectations and assumptions that are subject\nto risks and uncertainties that may cause actual results to differ materially. We describe risks and uncertainties that\ncould cause actual results and events to differ materially in \u201cRisk Factors,\u201d \u201cManagement\u2019s Discussion and Analysis of\nFinancial Condition and Results of Operations,\u201d and \u201cQuantitative and Qualitative Disclosures about Market Risk\u201d (Part\nII, Item 7A of this Form 10-K). Readers are cautioned not to place undue reliance on forward-looking statements, which\nspeak only as of the date they are made. We undertake no obligation to update or revise publicly any forward-looking\nstatements, whether because of new information, future events, or otherwise.",
+              "page": 5,
+              "bbox": [
+                34.5,
+                75.69953155517578,
+                564.529296875,
+                244.3686065673828
+              ],
+              "x0": 34.5,
+              "y0": 75.69953155517578,
+              "x1": 564.529296875,
+              "y1": 244.3686065673828,
+              "font_size": 9.997499465942383,
+              "y_position_ratio": 0.0899129764012905,
+              "label": "paragraph"
+            },
+            {
+              "text": "3",
+              "page": 5,
+              "bbox": [
+                295.8984375,
+                256.7623291015625,
+                300.3436584472656,
+                265.6942443847656
+              ],
+              "x0": 295.8984375,
+              "y0": 256.7623291015625,
+              "x1": 300.3436584472656,
+              "y1": 265.6942443847656,
+              "font_size": 7.994999885559082,
+              "y_position_ratio": 0.3049723659177743,
+              "label": "other"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

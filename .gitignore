@@ -38,3 +38,4 @@ Thumbs.db
 # Project outputs
 outputs/*
 !outputs/.gitkeep
+!outputs/*.json
