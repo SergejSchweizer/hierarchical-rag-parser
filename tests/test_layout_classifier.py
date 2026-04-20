@@ -151,7 +151,7 @@ def test_build_classifier_input_includes_neighboring_blocks_and_page() -> None:
     assert "Current block uppercase ratio: 0.120" in classifier_input
     assert "Current block: Internal Controls" in classifier_input
     assert "Next block font size: 11.00" in classifier_input
-    assert "Next block text length: 52 chars, 7 words" in classifier_input
+    assert "Next block text length: 53 chars, 7 words" in classifier_input
     assert "Next block line count: 2" in classifier_input
     assert "Next block y position ratio: 0.300" in classifier_input
     assert "Next block width ratio: 0.800" in classifier_input
@@ -194,3 +194,25 @@ def test_is_too_long_for_title_uses_configured_thresholds() -> None:
     assert _is_too_long_for_title(many_words) is True
     assert _is_too_long_for_title(many_chars) is True
     assert _is_too_long_for_title("Short Audit Report") is False
+
+
+def test_labeled_block_to_dict_keeps_bbox_and_y_axis_ratio() -> None:
+    labeled_block = LabeledBlock(
+        block=TextBlock(
+            text="Heading",
+            page=1,
+            bbox=(10.0, 20.0, 30.0, 40.0),
+            font_size=16.0,
+            y_position_ratio=0.125,
+        ),
+        label=BlockLabel.SECTION,
+    )
+
+    serialized = labeled_block.to_dict()
+
+    assert serialized["bbox"] == (10.0, 20.0, 30.0, 40.0)
+    assert serialized["y_position_ratio"] == 0.125
+    assert "x0" not in serialized
+    assert "y0" not in serialized
+    assert "x1" not in serialized
+    assert "y1" not in serialized

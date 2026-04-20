@@ -2,6 +2,21 @@
 
 Small Python project for structured PDF parsing and hierarchical chunking.
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Current Pipeline](#current-pipeline)
+- [Step 1: PDF parsing](#step-1-pdf-parsing)
+- [Step 2: Block classification](#step-2-block-classification)
+- [Step 3: Structure building](#step-3-structure-building)
+- [Step 4: Hierarchical chunking](#step-4-hierarchical-chunking)
+- [CLI orchestration](#cli-orchestration)
+- [Shared domain model](#shared-domain-model)
+- [Model Used For Classification](#model-used-for-classification)
+- [Files And Responsibilities](#files-and-responsibilities)
+- [Running The Current Pipeline](#running-the-current-pipeline)
+- [What Comes Next](#what-comes-next)
+
 ## Overview
 
 This project extracts text blocks from PDF documents, classifies those blocks
@@ -12,6 +27,8 @@ The current focus is the first half of the pipeline:
 
 1. parse the PDF into ordered text blocks
 2. classify each block as `title`, `section`, `subsection`, `paragraph`, or `other`
+3. build a simple document tree from the labeled blocks
+4. turn the document tree into hierarchical chunks for downstream RAG use
 
 The goal is to reconstruct document structure from PDFs in a way that is easy
 to inspect, easy to test, and easy to extend.
@@ -70,7 +87,74 @@ Design:
 - `HuggingFaceLayoutClassifier` is the concrete classifier implementation used
   by the current pipeline.
 
-### Step 3: CLI orchestration
+### Step 3: Structure building
+
+File: [src/structure_builder.py](src/structure_builder.py)
+
+What happens:
+- The builder consumes ordered `LabeledBlock` objects.
+- The first `title` becomes the document title.
+- Paragraph-like content before the first section is stored as preamble.
+- `section` blocks create top-level sections.
+- `subsection` blocks are nested under the current section.
+- Later paragraph-like blocks are attached to the active section or subsection.
+
+Output:
+- `DocumentTree`
+
+### Step 4: Hierarchical chunking
+
+File: [src/chunker.py](src/chunker.py)
+
+What happens:
+- The chunker consumes `DocumentTree`.
+- Preamble content becomes a document-level chunk.
+- Section-level content becomes section chunks.
+- Subsection-level content becomes subsection chunks.
+- Each chunk keeps ancestry metadata such as `chunk_id`, `level`, `parent_section_id`,
+  `parent_subsection_id`, title, section, subsection, and page range.
+
+Output:
+- `list[DocumentChunk]`
+
+Why hierarchical chunking is useful:
+- It keeps local text together with its document context.
+- It improves retrieval precision because smaller chunks can match specific questions better.
+- It improves answer quality because retrieved chunks can still be linked back to their section or subsection.
+- It makes citations and debugging easier because each answer can be grounded in a known part of the document tree.
+
+Current limitations:
+- Each content group currently becomes exactly one chunk.
+- There is no max-length splitting for long sections.
+- There is no overlap between neighboring chunks.
+- Chunk text is optimized for readability, not yet separately for embedding input.
+
+Possible next improvements:
+- Add max-size chunking such as `max_chars` or token-based splitting.
+- Add overlap between chunks so context is preserved across chunk boundaries.
+- Prefer splitting at paragraph or sentence boundaries instead of hard cuts.
+- Add richer metadata such as `chunk_id`, `char_count`, `source_pages`, or `section_path`.
+- Store separate `display_text` and `embedding_text` forms for retrieval experiments.
+- Feed heading context directly into the chunk text or embedding representation.
+
+Possible retrieval design: Parent-child retrieval
+
+One practical next step is a parent-child retrieval design:
+
+1. Split the document into smaller child chunks for precise semantic matching.
+2. Store parent context for each child chunk, such as the subsection, section, or document title it belongs to.
+3. Embed and index the child chunks in a vector store.
+4. At query time, embed the user question and retrieve the most similar child chunks.
+5. For each retrieved child chunk, load its parent context from the document tree.
+6. Send both the matched child chunk and its parent section or subsection context to the LLM.
+
+Why this works well:
+- Small child chunks improve retrieval precision.
+- Parent context restores the surrounding meaning that may be missing from a small chunk alone.
+- The final prompt stays grounded in the real document structure instead of using isolated text snippets.
+- This is a simple way to turn structural chunking into true hierarchical retrieval.
+
+### CLI orchestration
 
 File: [src/main.py](src/main.py)
 
@@ -79,13 +163,15 @@ What happens:
 - It runs the parsing step.
 - It builds the Hugging Face classifier.
 - It classifies the extracted blocks.
+- It reconstructs a simple document tree.
+- It builds hierarchical chunks from that tree.
 - It prints a preview to the console.
-- It can optionally write the labeled output as JSON.
+- It can optionally write the labeled output, document tree, and chunks as JSON.
 
 Example flow:
 
 ```text
-PDF -> parse into TextBlock objects -> classify into LabeledBlock objects -> preview or save JSON
+PDF -> TextBlock objects -> LabeledBlock objects -> document tree -> chunks -> preview or save JSON
 ```
 
 ### Shared domain model
@@ -99,6 +185,10 @@ What lives here:
   - the label vocabulary used by the classifier
 - `LabeledBlock`
   - a parsed block plus one structural label
+- `SectionNode`, `SubsectionNode`, `DocumentTree`
+  - the structure-building output objects
+- `DocumentChunk`
+  - chunked text plus structural metadata for retrieval
 
 Why this file exists:
 - It keeps the pipeline data structures explicit and typed.
@@ -177,19 +267,31 @@ Practical interpretation:
 ## Running The Current Pipeline
 
 ```powershell
-.venv\Scripts\python src/main.py sample_data/example.pdf
+.venv\Scripts\python src/main.py sample_data\10-K.pdf --max-pages 5
 ```
 
 Write JSON output:
 
 ```powershell
-.venv\Scripts\python src/main.py sample_data/example.pdf --output outputs/labeled_blocks.json
+.venv\Scripts\python src/main.py sample_data\10-K.pdf --output outputs\labeled_blocks.json
+```
+
+Write the reconstructed document tree:
+
+```powershell
+.venv\Scripts\python src/main.py sample_data\10-K.pdf --max-pages 5 --tree-output outputs\document_tree.json
+```
+
+Write hierarchical chunks:
+
+```powershell
+.venv\Scripts\python src/main.py sample_data\10-K.pdf --max-pages 5 --chunks-output outputs\chunks.json
 ```
 
 ## What Comes Next
 
-The next pipeline stage is structure building:
+The next pipeline stage is retrieval and question answering on top of the chunks:
 
-1. consume `LabeledBlock` objects
-2. build a document tree with title, sections, and subsections
-3. use that tree as the basis for hierarchical chunking
+1. embed and index `DocumentChunk`
+2. retrieve relevant chunks for a user query
+3. generate answers with citations grounded in the chunk metadata
