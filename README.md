@@ -118,6 +118,28 @@ What happens:
 - `subsection` blocks are nested under the current section.
 - Later paragraph-like blocks are attached to the active section or subsection.
 
+How grouping is decided (state-machine behavior):
+- The builder runs in one pass over the ordered labeled blocks.
+- It tracks two pointers: `current_section` and `current_subsection`.
+- If a block is labeled `section`, a new `SectionNode` is created and
+  `current_subsection` is reset to `None`.
+- If a block is labeled `subsection` and no section exists yet, the builder
+  creates an implicit fallback section with heading `Untitled Section`, then
+  adds the subsection under it.
+- Non-heading blocks are routed in this order:
+  1. if `current_subsection` exists -> append to that subsection
+  2. else if `current_section` exists -> append to that section
+  3. else -> append to document `preamble`
+
+Important details:
+- Only the first `title` is used for `DocumentTree.title`; later `title` labels
+  are treated like regular content blocks.
+- There is no explicit "subsection end" marker. A subsection remains active
+  until another `section` or `subsection` heading appears.
+- The builder does not use geometry to group blocks. It relies on:
+  - block order from the parser
+  - labels from the classifier
+
 Output:
 - `DocumentTree`
 
